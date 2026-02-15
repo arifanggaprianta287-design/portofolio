@@ -63,7 +63,41 @@
         <a href="https://github.com/arifanggaprianta287-design" class="btn">💻 My GitHub</a>
         
         <a href="#" class="btn">📸 Instagram (Coming Soon)</a>
+    <div style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 15px; margin-top: 20px; box-shadow: inset 0 0 10px rgba(0,0,0,0.2);">
+    <h3 style="font-size: 16px; margin-bottom: 10px;">🧮 Kalkulator Sederhana</h3>
+    <input type="number" id="num1" placeholder="Angka 1" style="width: 80%; padding: 8px; border-radius: 5px; border: none; margin-bottom: 10px;">
+    <input type="number" id="num2" placeholder="Angka 2" style="width: 80%; padding: 8px; border-radius: 5px; border: none; margin-bottom: 10px;">
+    
+    <div style="display: flex; gap: 5px; justify-content: center; margin-bottom: 10px;">
+        <button onclick="hitung('+')" style="padding: 10px 15px; border-radius: 5px; border: none; background: #764ba2; color: white;">+</button>
+        <button onclick="hitung('-')" style="padding: 10px 15px; border-radius: 5px; border: none; background: #764ba2; color: white;">-</button>
+        <button onclick="hitung('*')" style="padding: 10px 15px; border-radius: 5px; border: none; background: #764ba2; color: white;">x</button>
+        <button onclick="hitung('/')" style="padding: 10px 15px; border-radius: 5px; border: none; background: #764ba2; color: white;">/</button>
     </div>
+    
+    <h4 id="hasil" style="margin-top: 10px; color: #ffeb3b;">Hasil: -</h4>
+</div>
+
+<script>
+    function hitung(operator) {
+        const n1 = parseFloat(document.getElementById('num1').value);
+        const n2 = parseFloat(document.getElementById('num2').value);
+        let hasil = 0;
+
+        if (isNaN(n1) || isNaN(n2)) {
+            alert("Masukkan angka dulu bro!");
+            return;
+        }
+
+        if (operator === '+') hasil = n1 + n2;
+        if (operator === '-') hasil = n1 - n2;
+        if (operator === '*') hasil = n1 * n2;
+        if (operator === '/') hasil = n1 / n2;
+
+        document.getElementById('hasil').innerText = "Hasil: " + hasil;
+    }
+</script>
+
 
 </body>
 </html>
