@@ -196,6 +196,29 @@
         display.style.display = "block";
     }
 </script>
+<hr style="margin: 40px 0; border: 0; border-top: 1px dashed #fff; opacity: 0.3;">
+
+<div style="background: rgba(255,255,255,0.15); padding: 25px; border-radius: 20px; text-align: center; border: 2px solid #ffeb3b;">
+    <h3 style="margin-bottom: 5px;">🖼️ PNG Egg Finder</h3>
+    <p style="font-size: 12px; margin-bottom: 15px; opacity: 0.8;">Cari Gambar Transparan Kualitas HD</p>
+    
+    <input type="text" id="inputPng" placeholder="Contoh: Mobile Legends, Api, Logo..." style="width: 85%; padding: 12px; border-radius: 10px; border: none; margin-bottom: 15px; text-align: center;">
+    
+    <button onclick="cariPng()" style="width: 90%; padding: 12px; border-radius: 10px; border: none; background: #ffeb3b; color: #333; font-weight: bold; cursor: pointer;">🔍 Cari Sekarang</button>
+</div>
+
+<script>
+    function cariPng() {
+        const keyword = document.getElementById('inputPng').value;
+        if (keyword === "") {
+            alert("Mau cari gambar apa, cuy?");
+            return;
+        }
+        // Mengarahkan langsung ke hasil pencarian gambar transparan
+        const url = "https://www.google.com/search?q=" + encodeURIComponent(keyword) + " png transparent hi-res";
+        window.open(url, '_blank');
+    }
+</script>
 
 
 </body>
