@@ -97,6 +97,42 @@
         document.getElementById('hasil').innerText = "Hasil: " + hasil;
     }
 </script>
+<hr style="margin: 40px 0; border: 0; border-top: 1px dashed #fff; opacity: 0.3;">
+
+<div style="background: rgba(255,255,255,0.15); padding: 25px; border-radius: 20px; text-align: center; border: 1px solid rgba(255,255,255,0.2);">
+    <h3 style="margin-bottom: 15px;">🎁 Kirim Ucapan Buat Kamu</h3>
+    <input type="text" id="namaPengunjung" placeholder="Masukkan Namamu" style="width: 80%; padding: 10px; border-radius: 10px; border: none; margin-bottom: 15px; text-align: center;">
+    
+    <button onclick="buatUcapan()" style="width: 85%; padding: 12px; border-radius: 10px; border: none; background: #ffeb3b; color: #333; font-weight: bold; cursor: pointer;">✨ Buka Pesan Rahasia</button>
+
+    <div id="boxUcapan" style="display: none; margin-top: 20px; padding: 15px; background: white; color: #764ba2; border-radius: 10px; animation: pop 0.5s ease;">
+        <p id="teksUcapan" style="font-weight: bold; font-size: 18px;"></p>
+        <p style="font-size: 14px; opacity: 0.8;">"Semoga harimu menyenangkan dan terus semangat belajar coding!"</p>
+    </div>
+</div>
+
+<style>
+    @keyframes pop {
+        0% { transform: scale(0); }
+        100% { transform: scale(1); }
+    }
+</style>
+
+<script>
+    function buatUcapan() {
+        const nama = document.getElementById('namaPengunjung').value;
+        const box = document.getElementById('boxUcapan');
+        const teks = document.getElementById('teksUcapan');
+
+        if (nama.trim() === "") {
+            alert("Isi namamu dulu dong!");
+            return;
+        }
+
+        teks.innerText = "Halo, " + nama + "! 👋";
+        box.style.display = "block";
+    }
+</script>
 
 
 </body>
