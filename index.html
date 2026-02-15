@@ -133,6 +133,69 @@
         box.style.display = "block";
     }
 </script>
+<hr style="margin: 40px 0; border: 0; border-top: 1px dashed #fff; opacity: 0.3;">
+
+<div style="background: rgba(255,255,255,0.1); padding: 25px; border-radius: 20px; text-align: center;">
+    <h3 style="margin-bottom: 15px;">📝 Catatan Cepat (To-Do List)</h3>
+    <div style="display: flex; gap: 10px; margin-bottom: 15px;">
+        <input type="text" id="inputTugas" placeholder="Tulis tugas/catatan..." style="flex: 1; padding: 10px; border-radius: 10px; border: none;">
+        <button onclick="tambahTugas()" style="padding: 10px 15px; border-radius: 10px; border: none; background: #25d366; color: white; font-weight: bold;">+</button>
+    </div>
+    
+    <ul id="daftarTugas" style="text-align: left; list-style: none; padding: 0;">
+        </ul>
+</div>
+
+<script>
+    function tambahTugas() {
+        const input = document.getElementById('inputTugas');
+        const tugas = input.value;
+        if (tugas === "") return alert("Isi dulu catatannya!");
+
+        const li = document.createElement('li');
+        li.innerHTML = `<div style="background: white; color: #333; padding: 10px; border-radius: 8px; margin-bottom: 8px; display: flex; justify-content: space-between; align-items: center;">
+            <span>${tugas}</span>
+            <button onclick="this.parentElement.remove()" style="background: red; color: white; border: none; border-radius: 5px; padding: 5px 10px;">Hapus</button>
+        </div>`;
+        
+        document.getElementById('daftarTugas').appendChild(li);
+        input.value = "";
+    }
+</script>
+<hr style="margin: 40px 0; border: 0; border-top: 1px dashed #fff; opacity: 0.3;">
+
+<div style="background: rgba(255,255,255,0.1); padding: 25px; border-radius: 20px; text-align: center;">
+    <h3 style="margin-bottom: 15px;">💵 Konverter Mata Uang</h3>
+    <p style="font-size: 12px; margin-bottom: 15px; opacity: 0.8;">Konversi Rupiah (IDR) ke Dollar (USD)</p>
+    
+    <input type="number" id="inputRupiah" placeholder="Masukkan Rp (Rupiah)" style="width: 85%; padding: 10px; border-radius: 10px; border: none; margin-bottom: 15px; text-align: center;">
+    
+    <button onclick="konversiUang()" style="width: 90%; padding: 12px; border-radius: 10px; border: none; background: #2ecc71; color: white; font-weight: bold; cursor: pointer;">💸 Hitung ke USD</button>
+
+    <div id="hasilKonversi" style="margin-top: 20px; font-size: 20px; font-weight: bold; color: #ffeb3b; display: none;">
+        Hasil: $ <span id="valUSD">0</span>
+    </div>
+    <p style="font-size: 10px; margin-top: 10px; opacity: 0.6;">*Estimasi Kurs: 1 USD = Rp 16.000</p>
+</div>
+
+<script>
+    function konversiUang() {
+        const idr = document.getElementById('inputRupiah').value;
+        const display = document.getElementById('hasilKonversi');
+        const valUSD = document.getElementById('valUSD');
+
+        if (idr === "" || idr <= 0) {
+            alert("Masukkan jumlah uang yang bener, Bos!");
+            return;
+        }
+
+        // Hitung IDR ke USD (kurs 16.000)
+        const hasil = (idr / 16000).toFixed(2);
+        
+        valUSD.innerText = hasil;
+        display.style.display = "block";
+    }
+</script>
 
 
 </body>
