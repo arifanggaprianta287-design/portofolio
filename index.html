@@ -162,10 +162,44 @@
     <div id="boxUcapan" style="display: none; margin-top: 20px; padding: 15px; background: white; color: #764ba2; border-radius: 10px; animation: pop 0.5s ease;">
         <p id="teksUcapan" style="font-weight: bold; font-size: 18px;"></p>
         <p style="font-size: 14px; opacity: 0.8;">"Semoga harimu menyenangkan dan terus semangat belajar coding!"</p>
-    </div>
+    <div id="tab-notes" class="tab-content" style="display:none; margin-top: 20px;">
+    <h3>📝 Catatan Cepat</h3>
+    <input type="text" id="todoInput" placeholder="Tulis catatan...">
+    <button onclick="alert('Tersimpan!')" style="width: 85%; padding: 10px; border-radius: 10px; background: #ffeb3b; border: none; font-weight: bold;">Simpan</button>
 </div>
 
-<style>
+<div id="tab-kurs" class="tab-content" style="display:none; margin-top: 20px;">
+    <h3>💵 Konverter Rupiah</h3>
+    <input type="number" id="rupiah" placeholder="Masukkan Rp...">
+    <button onclick="alert('Hasil: $' + (document.getElementById('rupiah').value/16000).toFixed(2))" style="width: 85%; padding: 10px; border-radius: 10px; background: #2ecc71; color: white; border: none; font-weight: bold;">Hitung ke USD</button>
+</div>
+
+<div id="tab-png" class="tab-content" style="display:none; margin-top: 20px;">
+    <h3>🖼️ PNG Egg Finder</h3>
+    <input type="text" id="pngSearch" placeholder="Cari gambar...">
+    <button onclick="window.open('https://www.google.com/search?tbm=isch&q=' + document.getElementById('pngSearch').value + ' png transparent')" style="width: 85%; padding: 10px; border-radius: 10px; background: #3498db; color: white; border: none; font-weight: bold;">Cari Sekarang</button>
+</div>
+
+<script>
+    function buatUcapan() {
+        const nama = document.getElementById('namaPengunjung').value;
+        const box = document.getElementById('boxUcapan');
+        const teks = document.getElementById('teksUcapan');
+        if (nama.trim() === "") { alert("Isi namamu dulu dong!"); return; }
+        teks.innerText = "Semoga hari kamu menyenangkan, " + nama + "!";
+        box.style.display = 'block';
+    }
+
+    function buka(id) {
+        // Sembunyikan semua tab-content
+        document.querySelectorAll('.tab-content').forEach(t => {
+            t.style.display = 'none';
+        });
+        // Tampilkan yang dipilih
+        document.getElementById(id).style.display = 'block';
+    }
+</script>
+
 
 <script>
     function buatUcapan() {
